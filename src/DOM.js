@@ -2,7 +2,7 @@
 class DOM{
 
     makeGrid(board,rows,columns)
-    {console.log('makegrid called');
+    {
         for(let i=0;i<rows;i++)
         {
             const rowElement=document.createElement('div');

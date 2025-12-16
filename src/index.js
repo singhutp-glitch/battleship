@@ -21,6 +21,7 @@ class NewGame{
         this.playBtn=document.querySelector('button.play');
         this.playBtn.addEventListener('click',()=>{
             this.playBtn.remove();
+            this.startGame();
         })
         
     }
@@ -32,6 +33,10 @@ class NewGame{
         this.domElement.placeShip(board,[2,1],2,1);
         player.gameBoard.placeShip([3,1],1,1);
         this.domElement.placeShip(board,[3,1],1,1);
+    }
+    startGame()
+    {
+        console.log('start game');
     }
     
 }
