@@ -20,7 +20,16 @@ button.play{
   margin-left:auto;
   margin-right: auto;
   font-size: 25px;
-
+}
+div.messBox{
+  margin-top: 200px;
+  display: block;
+  margin-left:auto;
+  margin-right: auto;
+  font-size: 30px;
+  text-align: center;
+  /* outline: auto; */
+  max-width: 100px;
 }
 .board1,.board2{
   height: 400px;

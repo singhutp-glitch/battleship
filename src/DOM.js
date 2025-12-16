@@ -136,6 +136,14 @@ class DOM{
         }
         
     }
+    addMessageBox()
+    {
+        const messageBox=document.createElement('div');
+        messageBox.classList.add('messBox');
+        messageBox.textContent='player1 attack';
+        const buffer=document.querySelector('div.buffer');
+        buffer.append(messageBox);
+    }
 }
 module.exports=DOM;
 //main

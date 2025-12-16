@@ -21,6 +21,7 @@ class NewGame{
         this.playBtn=document.querySelector('button.play');
         this.playBtn.addEventListener('click',()=>{
             this.playBtn.remove();
+            this.domElement.addMessageBox();
             this.startGame();
         })
         
