@@ -1,6 +1,7 @@
 const { experiments } = require('webpack');
 const Ship=require('./ship');
 const Gameboard=require('./gameboard');
+const Player=require('./player');
 
 test('should initialize ship',()=>{
     const ship=new Ship(5);
@@ -95,5 +96,14 @@ test('isAllSunk should work',()=>{
     expect(gameBoard.isAllSunk()).toBe(false);
     gameBoard.receiveAttack(1,3);
     expect(gameBoard.isAllSunk()).toBe(true);
-    
+})
+
+test('player class should initiate',()=>{
+    const player1=new Player(0);
+    expect(player1.type).toBe("comp");
+})
+
+test('player should have Gameboard',()=>{
+    const player1=new Player(0);
+    expect(player1.gameBoard.noOfShips).toBe(0);
 })
