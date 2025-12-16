@@ -25,7 +25,9 @@ class NewGame{
         player.gameBoard.placeShip([1,1],3,1);
         this.domElement.placeShip(board,[1,1],3,1);
         player.gameBoard.placeShip([2,1],2,1);
+        this.domElement.placeShip(board,[2,1],2,1);
         player.gameBoard.placeShip([3,1],1,1);
+        this.domElement.placeShip(board,[3,1],1,1);
     }
     
 }
