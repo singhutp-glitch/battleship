@@ -10,6 +10,7 @@ class Gameboard{
                 isShip:-1
             })));
         this.noOfShips=0;
+        this.noOfSunkShips=0;
         this.ships=[];
     }
 
@@ -60,7 +61,7 @@ class Gameboard{
         this.noOfShips++;
         
     }
-    isPlace(start,length,direction)
+    isPlacable(start,length,direction)
     {
         let first;
         let last;
@@ -115,8 +116,24 @@ class Gameboard{
         {
             const ship=this.ships[shipNum];
             ship.hit();
+            this.updateSunkShips(ship);
         }
         return (this.cell(row,column).isShip>=0);
+    }
+    checkHitStatus(row,column)
+    {
+        return this.cell(row,column).isHit;
+    }
+    updateSunkShips(ship)
+    {
+        if(ship.isSunk())
+        {
+            this.noOfSunkShips++;
+        }
+    }
+    isAllSunk()
+    {
+        return (this.noOfShips===this.noOfSunkShips);
     }
 }
 

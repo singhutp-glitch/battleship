@@ -40,12 +40,12 @@ test('placeShip should work',()=>{
 })
 test('isPlace check out of bound',()=>{
     const gameBoard=new Gameboard;
-    expect(gameBoard.isPlace([1,1],4,0)).toBe(false);
+    expect(gameBoard.isPlacable([1,1],4,0)).toBe(false);
 })
 test('isPlace check crossing ships',()=>{
     const gameBoard=new Gameboard;
     gameBoard.placeShip([1,1],4,1);
-    expect(gameBoard.isPlace([1,1],4,2)).toBe(false);
+    expect(gameBoard.isPlacable([1,1],4,2)).toBe(false);
     
 })
 
@@ -66,4 +66,34 @@ test('receiveAttack send hit to ship',()=>{
     gameBoard.placeShip([1,1],3,1);
     gameBoard.receiveAttack(1,1);
     expect(gameBoard.ships[0].noOfHits).toBe(1);
+    gameBoard.receiveAttack(1,3);
+    expect(gameBoard.ships[0].noOfHits).toBe(2);
+})
+test('receiveAttack assume fresh hit',()=>{
+    const gameBoard=new Gameboard;
+    gameBoard.placeShip([1,1],3,1);
+    gameBoard.receiveAttack(1,1);
+    expect(gameBoard.ships[0].noOfHits).toBe(1);
+    gameBoard.receiveAttack(1,1);
+    expect(gameBoard.ships[0].noOfHits).toBe(2);  
+})
+
+test('checkHitStatus works',()=>{
+    const gameBoard=new Gameboard;
+    expect(gameBoard.checkHitStatus(1,1)).toBe(false);
+    gameBoard.receiveAttack(1,1);
+    expect(gameBoard.checkHitStatus(1,1)).toBe(true);
+})
+
+test('isAllSunk should work',()=>{
+    const gameBoard =new Gameboard;
+    gameBoard.placeShip([1,1],3,1);
+    expect(gameBoard.isAllSunk()).toBe(false);
+    gameBoard.receiveAttack(1,1);
+    expect(gameBoard.isAllSunk()).toBe(false);
+    gameBoard.receiveAttack(1,2);
+    expect(gameBoard.isAllSunk()).toBe(false);
+    gameBoard.receiveAttack(1,3);
+    expect(gameBoard.isAllSunk()).toBe(true);
+    
 })
