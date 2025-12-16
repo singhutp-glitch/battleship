@@ -13,6 +13,14 @@
 .buffer{
   flex:2 2 auto;
 }
+button.play{
+  margin-top: 200px;
+  display: block;
+  margin-left:auto;
+  margin-right: auto;
+  font-size: 25px;
+  
+}
 .board1,.board2{
   height: 200px;
   width:200px;
