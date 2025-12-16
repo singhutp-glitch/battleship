@@ -2,9 +2,9 @@ const Ship = require("./ship");
 
 class Gameboard{
     constructor(){
-        rows=5;
-        columns=5;
-        this.board=Array.from({length:rows},()=>Array.from({length:columns},
+        this.rows=5;
+        this.columns=5;
+        this.board=Array.from({length:this.rows},()=>Array.from({length:this.columns},
             ()=>({
                 isHit:false,
                 isShip:-1
@@ -26,6 +26,7 @@ class Gameboard{
     {
         let first;
         this.createShip(length);
+        let i;
         if(direction===0)
         {
             first=start[0];
