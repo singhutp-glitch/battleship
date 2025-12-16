@@ -17,7 +17,7 @@ class NewGame{
         this.player1=new Player(1);
         this.player2=new Player(0);
         this.setup(this.player1,this.board1);
-        this.setup(this.player2,this.board2);
+        // this.setup(this.player2,this.board2);
         
     }
     setup(player,board)
