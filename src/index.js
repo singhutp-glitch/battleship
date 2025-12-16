@@ -11,13 +11,17 @@ class NewGame{
         this.board1=document.querySelector('.board1');
         this.board2=document.querySelector('.board2');
         
-        this.domElement.makeGrid(this.board1,5,5);
-        this.domElement.makeGrid(this.board2,5,5);
+        this.domElement.makeGrid(this.board1,10,10);
+        this.domElement.makeGrid(this.board2,10,10);
 
         this.player1=new Player(1);
         this.player2=new Player(0);
         this.setup(this.player1,this.board1);
         // this.setup(this.player2,this.board2);
+        this.playBtn=document.querySelector('button.play');
+        this.playBtn.addEventListener('click',()=>{
+            this.playBtn.remove();
+        })
         
     }
     setup(player,board)

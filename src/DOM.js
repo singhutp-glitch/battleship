@@ -43,7 +43,16 @@ class DOM{
 
                 (board.children[row]).children[column].classList.add('fill');
                 (board.children[row]).children[column].classList.add('left');
+                if(column>0)
+                {
+                    (board.children[row]).children[column-1].classList.add('removeRight');
+                }
                 (board.children[row]).children[column].classList.add('right');
+
+                if(column<10)
+                {
+                    (board.children[row]).children[column+1].classList.add('removeLeft');
+                }
             }
         }
         else if(direction===1)
@@ -55,11 +64,19 @@ class DOM{
                 let column=first+i;
                 if(i===0)
                 {
-                    (board.children[row]).children[column].classList.add('left');    
+                    (board.children[row]).children[column].classList.add('left');
+                    if(column>0)
+                    {
+                        (board.children[row]).children[column-1].classList.add('removeRight');
+                    }    
                 }
                 if(i===length-1)
                 {
                     (board.children[row]).children[column].classList.add('right');        
+                    if(column<10)
+                    {
+                        (board.children[row]).children[column+1].classList.add('removeLeft');
+                    }
                 }
 
                 (board.children[row]).children[column].classList.add('fill');
@@ -85,7 +102,15 @@ class DOM{
 
                 (board.children[row]).children[column].classList.add('fill');
                 (board.children[row]).children[column].classList.add('left');
+                if(column>0)
+                {
+                    (board.children[row]).children[column-1].classList.add('removeRight');
+                }
                 (board.children[row]).children[column].classList.add('right');
+                if(column<10)
+                {
+                    (board.children[row]).children[column+1].classList.add('removeLeft');
+                }
             }
         }
         else if(direction===3)

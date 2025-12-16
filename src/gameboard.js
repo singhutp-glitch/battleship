@@ -2,8 +2,8 @@ const Ship = require("./ship");
 
 class Gameboard{
     constructor(){
-        this.rows=5;
-        this.columns=5;
+        this.rows=10;
+        this.columns=10;
         this.board=Array.from({length:this.rows},()=>Array.from({length:this.columns},
             ()=>({
                 isHit:false,
