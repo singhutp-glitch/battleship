@@ -42,7 +42,7 @@ div.messBox{
   height: 400px;
   width:  400px;
   margin-top: 150px;
-  border: 1px solid rgb(100, 150, 187);
+  /* border: 1px solid rgb(100, 150, 187); */
 }
 .board1{
   margin-left: auto;

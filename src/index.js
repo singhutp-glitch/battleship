@@ -20,8 +20,8 @@ class NewGame{
 
         this.player1=new Player(1);
         this.player2=new Player(0);
-        this.setOrientation(this.orientationList[0],this.player1);
-        this.showOrientation(this.orientationList[0],this.board1);
+        this.setOrientation(this.orientationList[1],this.player1);
+        this.showOrientation(this.orientationList[1],this.board1);
         this.setOrientation(this.orientationList[0],this.player2);
         
         // this.setup(this.player1,this.board1);
@@ -139,7 +139,7 @@ class NewGame{
     makeOrientations()
     {
         const orientationList=[];
-        const orientation=[];
+        let orientation=[];
         orientation.push(new Position([0,7],2,2));
         orientation.push(new Position([1,5],1,1));
         orientation.push(new Position([3,0],3,2));
@@ -151,7 +151,50 @@ class NewGame{
         orientation.push(new Position([7,3],2,2));
         orientation.push(new Position([8,1],1,1));
         orientationList.push(orientation);
-        return orientationList
+
+        orientation=[];
+        // ---- length 4 (1 ship)
+        orientation.push(new Position([0, 1], 4, 1)); // →
+
+        // ---- length 3 (2 ships)
+        orientation.push(new Position([2, 6], 3, 2)); // ↓
+        orientation.push(new Position([6, 1], 3, 1)); // →
+
+        // ---- length 2 (3 ships)
+        orientation.push(new Position([3, 3], 2, 2)); // ↓
+        orientation.push(new Position([7, 6], 2, 1)); // →
+        orientation.push(new Position([9, 1], 2, 1)); // →
+
+        // ---- length 1 (4 ships)
+        orientation.push(new Position([1, 9], 1, 1));
+        orientation.push(new Position([5, 9], 1, 1));
+        orientation.push(new Position([8, 4], 1, 1));
+        orientation.push(new Position([9, 9], 1, 1));
+        orientationList.push(orientation);
+
+
+        orientation=[];
+        // ---- length 4 (1 ship)
+        orientation.push(new Position([1, 4], 4, 2)); // ↓
+
+        // ---- length 3 (2 ships)
+        orientation.push(new Position([0, 0], 3, 1)); // →
+        orientation.push(new Position([6, 6], 3, 2)); // ↓
+
+        // ---- length 2 (3 ships)
+        orientation.push(new Position([3, 1], 2, 1)); // →
+        orientation.push(new Position([5, 0], 2, 2)); // ↓
+        orientation.push(new Position([8, 8], 2, 1)); // →
+
+        // ---- length 1 (4 ships)
+        orientation.push(new Position([0, 9], 1, 1));
+        orientation.push(new Position([4, 9], 1, 1));
+        orientation.push(new Position([7, 4], 1, 1));
+        orientation.push(new Position([9, 2], 1, 1));
+
+        orientationList.push(orientation);
+
+        return orientationList;
     }
     setOrientation(orientation,player)
     {
