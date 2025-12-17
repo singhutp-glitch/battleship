@@ -181,7 +181,7 @@ class DOM{
     {
         const messageBox=document.createElement('div');
         messageBox.classList.add('messBox');
-        messageBox.textContent='player1 attack';
+        messageBox.textContent='Captain Attack';
         const buffer=document.querySelector('div.buffer');
         buffer.append(messageBox);
     }

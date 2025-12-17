@@ -81,7 +81,7 @@ class NewGame{
                         }
                     }
                     this.turn=2;
-                    this.domElement.setMessage('Player2 attack');
+                    this.domElement.setMessage('Computer is attacking');
                     this.computerTurn();
                 }
                 else{
@@ -137,14 +137,20 @@ class NewGame{
             }
         }
         this.turn=1;
-        this.domElement.setMessage('Player1 attack');
+        this.domElement.setMessage('Captain Attack');
         this.round++;
 
     }
     gameOver(winner)
     {
         this.isGameOver=true;
-        this.domElement.setMessage('Player'+winner+' wins');
+        if(winner===1)
+        {
+            this.domElement.setMessage('You'+' won');
+        }
+        else{
+            this.domElement.setMessage('Computer'+' won');
+        }
     }
     makeOrientations()
     {

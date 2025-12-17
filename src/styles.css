@@ -1,10 +1,24 @@
 /* *{
   outline: auto;
 } */
+body{
+  margin: 0;
+}
+.nav{
+  background: #4FA9E6;
+  margin: 0;
+  padding:5px 10px;
+  font-size: 50px;
+  font-weight: 800;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  border: 3px solid #2C7EC4;
 
+  /* border-bottom: 5px solid darkblue;
+  border-top: 5px solid darkblue; */
+}
 .middle{
   display: flex;
-  min-height: 80vh;
+  min-height: 90vh;
   justify-content: stretch;
 }
 .player1,.player2{
@@ -19,14 +33,23 @@ button.play{
   display: block;
   margin-left:auto;
   margin-right: auto;
-  font-size: 25px;
+  font-size: 50px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 221, 255);
+  background-color: #4eccef; ;
 }
 button.placeShip{
   font-size: 25px;
    display: block;
   margin-left:auto;
   margin-right: auto;
-  margin-top: 50px;;
+  margin-top: 50px;
+
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 221, 255);
+  background-color: #a2dae9; 
 }
 div.messBox{
   margin-top: 200px;
@@ -34,14 +57,40 @@ div.messBox{
   margin-left:auto;
   margin-right: auto;
   font-size: 30px;
+  font-weight: 800;
   text-align: center;
   /* outline: auto; */
-  max-width: 100px;
+  max-width: 150px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border:1px solid rgb(167, 178, 183);
+  border-radius: 10px;
+}
+.head1,.head2{
+  padding: 0px;
+  box-sizing: border-box;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+.name1{
+  margin-top: auto;
+  margin-left: 210px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.name2{
+  margin-top: auto;
+  margin-left: auto;
+  width: 400px;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .board1,.board2{
   height: 400px;
   width:  400px;
-  margin-top: 150px;
+  
   /* border: 1px solid rgb(100, 150, 187); */
 }
 .board1{
