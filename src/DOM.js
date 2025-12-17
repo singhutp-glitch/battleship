@@ -1,6 +1,16 @@
 
 class DOM{
 
+    removeAllShips(board)
+    {
+        for(let row=0;row<10;row++)
+        {
+            for(let col=0;col<10;col++)
+            {
+                (board.children[row]).children[col].classList='col col'+col;
+            }
+        }
+    }
     makeGrid(board,rows,columns)
     {
         for(let i=0;i<rows;i++)

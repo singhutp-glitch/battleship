@@ -8,6 +8,7 @@ class NewGame{
     turn=1;
     round=0;
     isGameOver=false;
+    isGameStarted=false;
     constructor()
     {
         this.orientationList=this.makeOrientations();
@@ -20,8 +21,9 @@ class NewGame{
 
         this.player1=new Player(1);
         this.player2=new Player(0);
-        this.setOrientation(this.orientationList[1],this.player1);
-        this.showOrientation(this.orientationList[1],this.board1);
+        this.orientNum=0;
+        this.setOrientation(this.orientationList[0],this.player1);
+        this.showOrientation(this.orientationList[0],this.board1);
         this.setOrientation(this.orientationList[0],this.player2);
         
         // this.setup(this.player1,this.board1);
@@ -31,6 +33,13 @@ class NewGame{
             this.playBtn.remove();
             this.domElement.addMessageBox();
             this.startGame();
+        })
+        this.placeBtn=document.querySelector('button.placeShip');
+        this.placeBtn.addEventListener('click',()=>{
+            this.cleanBoard(this.board1,this.player1);
+            this.setOrientation(this.orientationList[(++this.orientNum)%3],this.player1);
+            this.showOrientation(this.orientationList[this.orientNum%3],this.board1);
+            
         })
         
     }
@@ -211,6 +220,11 @@ class NewGame{
             this.domElement.placeShip(board,position.start,position.length
                 ,position.direction);
         }
+    }
+    cleanBoard(board,player)
+    {
+        player.gameBoard.removeAllShips();
+        this.domElement.removeAllShips(board);
     }
 }
 //main

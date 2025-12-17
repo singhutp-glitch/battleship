@@ -13,10 +13,19 @@ class Gameboard{
         this.noOfSunkShips=0;
         this.ships=[];
     }
-
+    
     cell(row ,column)
     {
         return this.board[row][column];
+    }
+    removeAllShips()
+    {
+        this.board.forEach((element)=>{
+            element.forEach((cell)=>{
+                cell.isHit=false;
+                cell.isShip=-1;
+            })
+        })
     }
     createShip(length)
     {
