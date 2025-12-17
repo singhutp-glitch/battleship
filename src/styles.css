@@ -52,6 +52,7 @@ div.row>div.col{
   flex:1 1 auto;
   border: 1px solid rgb(187, 211, 229);
   margin: 0;
+  position: relative;
 }
 div.row{
   display: flex;
@@ -87,11 +88,46 @@ div>div>div.col.right{
 }
 div>div>div.col.fill{
 
-  background-color: rgb(236, 236, 246);
+  background-color: rgb(244, 244, 247);
 }
 div>div>div.col.removeLeft{
   border-left: none;
 }
 div>div>div.col.removeRight{
   border-right: none;
+}
+
+div.col.miss{
+  background-color:rgba(5, 211, 226, 0.125);
+}
+
+div.col.miss::after{
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: black;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.col.hit::before,
+div.col.hit::after{
+    content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140%;
+  height: 2px;
+  background-color: red;
+}
+div.col.hit::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+div.col.hit::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }

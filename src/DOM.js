@@ -6,14 +6,16 @@ class DOM{
         for(let i=0;i<rows;i++)
         {
             const rowElement=document.createElement('div');
-            rowElement.classList.add('row'+(i+1));
+            rowElement.classList.add('row'+(i));
             rowElement.classList.add('row');
 
             for(let j=0;j<columns;j++)
             {
                 const colElement=document.createElement('div');
-                colElement.classList.add('col'+(j+1));
+                colElement.classList.add('col'+(j));
                 colElement.classList.add('col');
+                colElement.dataset.row=i;
+                colElement.dataset.col=j;
                 
                 rowElement.append(colElement);
             }
@@ -136,6 +138,14 @@ class DOM{
         }
         
     }
+    missShot(cell)
+    {
+        cell.classList.add('miss');
+    }
+    hitShot(cell)
+    {
+        cell.classList.add('hit');
+    }
     addMessageBox()
     {
         const messageBox=document.createElement('div');
@@ -143,6 +153,11 @@ class DOM{
         messageBox.textContent='player1 attack';
         const buffer=document.querySelector('div.buffer');
         buffer.append(messageBox);
+    }
+    setMessage(message)
+    {
+        const messageBox=document.querySelector('div.messBox');
+        messageBox.textContent=message;
     }
 }
 module.exports=DOM;

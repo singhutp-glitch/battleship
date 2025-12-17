@@ -4,7 +4,7 @@ const Player=require('./player');
 const DOM=require('./DOM');
 
 class NewGame{
-    
+    turn=1;
     constructor()
     {
         this.domElement=new DOM;
@@ -17,7 +17,7 @@ class NewGame{
         this.player1=new Player(1);
         this.player2=new Player(0);
         this.setup(this.player1,this.board1);
-        // this.setup(this.player2,this.board2);
+        this.setup(this.player2,this.board2);
         this.playBtn=document.querySelector('button.play');
         this.playBtn.addEventListener('click',()=>{
             this.playBtn.remove();
@@ -38,6 +38,31 @@ class NewGame{
     startGame()
     {
         console.log('start game');
+        this.board2.addEventListener('click',(event)=>{
+            if(this.turn===1){
+                let hitCell=[];
+                hitCell.push(event.target.dataset.row);
+                hitCell.push(event.target.dataset.col);
+                const haveHit=this.player2.gameBoard.checkHitStatus(hitCell[0],
+                    hitCell[1]);
+                console.log(haveHit);
+                if(haveHit===false)
+                {
+                    if(!this.player2.gameBoard.receiveAttack(hitCell[0],hitCell[1]))
+                    {
+                        this.domElement.missShot(event.target);
+                    }
+                    else
+                    {
+                        this.domElement.hitShot(event.target);
+                    }
+                    this.turn=2;
+                }
+                else{
+                    this.domElement.setMessage('Already hit');
+                }
+            }
+        })
     }
     
 }
