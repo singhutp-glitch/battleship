@@ -46,7 +46,7 @@ class Gameboard{
         else if(direction===2)
         {
             first=start[0];
-            for(i=0;i<length;i=i++)
+            for(i=0;i<length;i++)
             {
                 this.board[first+i][start[1]].isShip=this.noOfShips;
             }
@@ -54,7 +54,7 @@ class Gameboard{
         else if(direction===3)
         {
             first=start[1];
-            for(i=0;i<length;i=i++)
+            for(i=0;i<length;i++)
             {
                 this.board[start[0]][first-i].isShip=this.noOfShips;
             }
@@ -91,7 +91,7 @@ class Gameboard{
             first=start[0];
             last=first+length;
             if(last>4)return false;
-            for(i=0;i<length;i=i++)
+            for(i=0;i<length;i++)
             {
                 if(this.board[first+i][start[1]].isShip===true)return false;
             }
@@ -101,7 +101,7 @@ class Gameboard{
             first=start[1];
             last=first-length;
             if(last<0)return false;
-            for(i=0;i<length;i=i++)
+            for(i=0;i<length;i++)
             {
                 if(this.board[start[0]][first-i].isShip===true)return false;
             }

@@ -140,10 +140,16 @@ class NewGame{
     {
         const orientationList=[];
         const orientation=[];
-        orientation.push(new Position([1,1],4,1));
-        orientation.push(new Position([2,1],3,1));
-        orientation.push(new Position([3,1],2,1));
-        orientation.push(new Position([4,1],1,1));
+        orientation.push(new Position([0,7],2,2));
+        // orientation.push(new Position([2,1],3,1));
+        // orientation.push(new Position([3,1],2,1));
+        // orientation.push(new Position([4,1],1,1));
+        // orientation.push(new Position([4,1],1,1));
+        // orientation.push(new Position([4,1],1,1));
+        // orientation.push(new Position([4,1],1,1));
+        // orientation.push(new Position([4,1],1,1));
+        // orientation.push(new Position([4,1],1,1));
+        // orientation.push(new Position([4,1],1,1));
         orientationList.push(orientation);
         return orientationList
     }
