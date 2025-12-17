@@ -75,7 +75,7 @@ class DOM{
                 if(i===length-1)
                 {
                     (board.children[row]).children[column].classList.add('right');        
-                    if(column<10)
+                    if(column<9)
                     {
                         (board.children[row]).children[column+1].classList.add('removeLeft');
                     }
@@ -109,7 +109,7 @@ class DOM{
                     (board.children[row]).children[column-1].classList.add('removeRight');
                 }
                 (board.children[row]).children[column].classList.add('right');
-                if(column<10)
+                if(column<9)
                 {
                     (board.children[row]).children[column+1].classList.add('removeLeft');
                 }
