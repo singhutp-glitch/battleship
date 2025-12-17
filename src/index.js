@@ -57,6 +57,33 @@ class NewGame{
                         this.domElement.hitShot(event.target);
                     }
                     this.turn=2;
+                    this.domElement.setMessage('Player2 attack');
+                }
+                else{
+                    this.domElement.setMessage('Already hit');
+                }
+            }
+        })
+        this.board1.addEventListener('click',(event)=>{
+            if(this.turn===2){
+                let hitCell=[];
+                hitCell.push(event.target.dataset.row);
+                hitCell.push(event.target.dataset.col);
+                const haveHit=this.player1.gameBoard.checkHitStatus(hitCell[0],
+                    hitCell[1]);
+                console.log(haveHit);
+                if(haveHit===false)
+                {
+                    if(!this.player1.gameBoard.receiveAttack(hitCell[0],hitCell[1]))
+                    {
+                        this.domElement.missShot(event.target);
+                    }
+                    else
+                    {
+                        this.domElement.hitShot(event.target);
+                    }
+                    this.turn=1;
+                    this.domElement.setMessage('Player1 attack');
                 }
                 else{
                     this.domElement.setMessage('Already hit');
