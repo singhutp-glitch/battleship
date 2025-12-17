@@ -7,7 +7,17 @@ class DOM{
         {
             for(let col=0;col<10;col++)
             {
-                (board.children[row]).children[col].classList='col col'+col;
+                if(col===0)
+                {
+                    (board.children[row]).children[col].classList='leftEdge col col'+col;
+                }
+                else if(col===9)
+                {
+                    (board.children[row]).children[col].classList='rightEdge col col'+col;
+                }
+                else{
+                    (board.children[row]).children[col].classList='col col'+col;
+                }
             }
         }
     }
@@ -24,6 +34,9 @@ class DOM{
                 const colElement=document.createElement('div');
                 colElement.classList.add('col'+(j));
                 colElement.classList.add('col');
+                if(j===0)colElement.classList.add('leftEdge');
+                if(j===9)colElement.classList.add('rightEdge');
+
                 colElement.dataset.row=i;
                 colElement.dataset.col=j;
                 
@@ -134,11 +147,19 @@ class DOM{
                 let column=first-i;
                 if(i===0)
                 {
-                    (board.children[row]).children[column].classList.add('right');    
+                    (board.children[row]).children[column].classList.add('right');   
+                    if(column<9)
+                    {
+                        (board.children[row]).children[column+1].classList.add('removeLeft');
+                    } 
                 }
                 if(i===length-1)
                 {
-                    (board.children[row]).children[column].classList.add('left');        
+                    (board.children[row]).children[column].classList.add('left');   
+                    if(column>0)
+                    {
+                        (board.children[row]).children[column-1].classList.add('removeRight');
+                    }      
                 }
 
                 (board.children[row]).children[column].classList.add('fill');

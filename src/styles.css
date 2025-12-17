@@ -57,7 +57,7 @@ div.board1>div{
 }
 div.row>div.col{
   flex:1 1 auto;
-  border: 1px solid rgb(187, 211, 229);
+  border: 1px solid rgb(187, 212, 231);
   margin: 0;
   position: relative;
 }
@@ -103,7 +103,12 @@ div>div>div.col.removeLeft{
 div>div>div.col.removeRight{
   border-right: none;
 }
-
+div>div>div.col.leftEdge{
+  border-left-width: 2px;
+}
+div>div>div.col.rightEdge{
+  border-right-width: 2px;
+}
 div.col.miss{
   background-color:rgba(5, 211, 226, 0.125);
 }
