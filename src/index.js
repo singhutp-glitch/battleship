@@ -1,3 +1,4 @@
+import Position from "./shipPositions";
 import "./styles.css";
 
 const Player=require('./player');
@@ -9,6 +10,7 @@ class NewGame{
     isGameOver=false;
     constructor()
     {
+        this.orientationList=this.makeOrientations();
         this.domElement=new DOM;
         this.board1=document.querySelector('.board1');
         this.board2=document.querySelector('.board2');
@@ -18,8 +20,12 @@ class NewGame{
 
         this.player1=new Player(1);
         this.player2=new Player(0);
-        this.setup(this.player1,this.board1);
-        this.setup(this.player2,this.board2);
+        this.setOrientation(this.orientationList[0],this.player1);
+        this.showOrientation(this.orientationList[0],this.board1);
+        this.setOrientation(this.orientationList[0],this.player2);
+        
+        // this.setup(this.player1,this.board1);
+        // this.setup(this.player2,this.board2);
         this.playBtn=document.querySelector('button.play');
         this.playBtn.addEventListener('click',()=>{
             this.playBtn.remove();
@@ -128,7 +134,34 @@ class NewGame{
     gameOver(winner)
     {
         this.isGameOver=true;
-        this.domElement.setMessage('player'+winner+' wins');
+        this.domElement.setMessage('Player'+winner+' wins');
+    }
+    makeOrientations()
+    {
+        const orientationList=[];
+        const orientation=[];
+        orientation.push(new Position([1,1],4,1));
+        orientation.push(new Position([2,1],3,1));
+        orientation.push(new Position([3,1],2,1));
+        orientation.push(new Position([4,1],1,1));
+        orientationList.push(orientation);
+        return orientationList
+    }
+    setOrientation(orientation,player)
+    {
+        for(let position of orientation)
+        {
+            player.gameBoard.placeShip(position.start,position.length
+                ,position.direction);
+        }
+    }
+    showOrientation(orientation,board)
+    {
+        for(let position of orientation)
+        {
+            this.domElement.placeShip(board,position.start,position.length
+                ,position.direction);
+        }
     }
 }
 //main
