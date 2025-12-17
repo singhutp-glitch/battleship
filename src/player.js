@@ -7,6 +7,7 @@ class Player{
         this.gameBoard=new Gameboard;
 
     }
+    
 }
 
 module.exports=Player;
