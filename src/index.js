@@ -6,6 +6,7 @@ const DOM=require('./DOM');
 class NewGame{
     turn=1;
     round=0;
+    isGameOver=false;
     constructor()
     {
         this.domElement=new DOM;
@@ -40,7 +41,7 @@ class NewGame{
     {
         console.log('start game');
         this.board2.addEventListener('pointerdown',(event)=>{
-            if(this.turn===1){
+            if(this.turn===1&& this.isGameOver===false){
                 let hitCell=[];
                 hitCell.push(event.target.dataset.row);
                 hitCell.push(event.target.dataset.col);
@@ -57,6 +58,11 @@ class NewGame{
                     else
                     {
                         this.domElement.hitShot(event.target);
+                        if(this.player2.gameBoard.isAllSunk())
+                        {
+                            this.gameOver(1);
+                            return;
+                        }
                     }
                     this.turn=2;
                     this.domElement.setMessage('Player2 attack');
@@ -98,8 +104,7 @@ class NewGame{
     computerTurn()
     {
         const hitCell=[];
-        hitCell[0]=Math.floor(this.round/10);
-        hitCell[1]=this.round%10;
+        this.player2.computerChoice(hitCell,this.round);
         
         const cell=(this.board1.children[hitCell[0]]).children[hitCell[1]];
         if(!this.player1.gameBoard.receiveAttack(hitCell[0],hitCell[1]))
@@ -109,11 +114,21 @@ class NewGame{
         else
         {
             this.domElement.hitShot(cell);
+            if(this.player1.gameBoard.isAllSunk())
+            {
+                this.gameOver(2);
+                return;
+            }
         }
         this.turn=1;
         this.domElement.setMessage('Player1 attack');
         this.round++;
 
+    }
+    gameOver(winner)
+    {
+        this.isGameOver=true;
+        this.domElement.setMessage('player'+winner+' wins');
     }
 }
 //main
