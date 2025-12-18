@@ -24,7 +24,6 @@ class RandomStrategy{
             {   unHitPositionCount++;
                 if(unHitPositionCount===position)
                 {
-                    console.log('('+row+','+col+')');
                     return [row,col];
                 }
             }

@@ -36,12 +36,13 @@ class NewGame{
         this.placeBtn=document.querySelector('button.placeShip');
         this.placeBtn.addEventListener('click',()=>{
             this.cleanBoard(this.board1,this.player1);
+
             this.setOrientation(this.orientationList[(++this.orientNum)%3],this.player1);
             this.showOrientation(this.orientationList[this.orientNum%3],this.board1);
-
+            console.log(this.orientNum);
             this.cleanBoard(this.board2,this.player2);
             this.setOrientation(this.orientationList[(this.orientNum+1)%3],this.player2);
-            this.showOrientation(this.orientationList[(this.orientNum+1)%3],this.board2);
+        
             
         })
         

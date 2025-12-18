@@ -22,9 +22,12 @@ class Gameboard{
     {
         this.board.forEach((element)=>{
             element.forEach((cell)=>{
+
                 cell.isShip=-1;
             })
         })
+        this.ships=[];
+        this.noOfShips=0;
     }
     createShip(length)
     {
