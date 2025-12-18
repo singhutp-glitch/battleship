@@ -13,12 +13,12 @@ class Player{
         }
 
     }
-    computerChoice(hitCell,round)
+    computerChoice(hitCell,round,gameBoard)
     {
         // hitCell[0]=Math.floor(round/10);
         // hitCell[1]=round%10;
 
-        const choice=this.aiBot.aiChoice(round,this.gameBoard);
+        const choice=this.aiBot.aiChoice(round,gameBoard);
         hitCell[0]=choice[0];
         hitCell[1]=choice[1];
     }

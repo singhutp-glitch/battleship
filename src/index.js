@@ -38,18 +38,13 @@ class NewGame{
             this.cleanBoard(this.board1,this.player1);
             this.setOrientation(this.orientationList[(++this.orientNum)%3],this.player1);
             this.showOrientation(this.orientationList[this.orientNum%3],this.board1);
+
+            this.cleanBoard(this.board2,this.player2);
+            this.setOrientation(this.orientationList[(this.orientNum+1)%3],this.player2);
+            this.showOrientation(this.orientationList[(this.orientNum+1)%3],this.board2);
             
         })
         
-    }
-    setup(player,board)
-    {
-        player.gameBoard.placeShip([1,1],3,1);
-        this.domElement.placeShip(board,[1,1],3,1);
-        player.gameBoard.placeShip([2,1],2,1);
-        this.domElement.placeShip(board,[2,1],2,1);
-        player.gameBoard.placeShip([3,1],1,1);
-        this.domElement.placeShip(board,[3,1],1,1);
     }
     startGame()
     {
@@ -117,10 +112,10 @@ class NewGame{
     computerTurn()
     {
         const hitCell=[0,0];
-        this.player2.computerChoice(hitCell,this.round);
+        this.player2.computerChoice(hitCell,this.round,this.player1.gameBoard);
         
         const cell=(this.board1.children[hitCell[0]]).children[hitCell[1]];
-        if(!this.player1.gameBoard.receiveAttack(hitCell[0],hitCell[1]))
+        if(!(this.player1.gameBoard.receiveAttack(hitCell[0],hitCell[1])))
         {
             this.domElement.missShot(cell);
         }
@@ -133,6 +128,7 @@ class NewGame{
                 return;
             }
         }
+
         this.turn=1;
         this.domElement.setMessage('Captain Attack');
         this.round++;

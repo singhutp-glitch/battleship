@@ -22,7 +22,6 @@ class Gameboard{
     {
         this.board.forEach((element)=>{
             element.forEach((cell)=>{
-                cell.isHit=false;
                 cell.isShip=-1;
             })
         })

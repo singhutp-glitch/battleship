@@ -14,27 +14,26 @@ class Ai{
 class RandomStrategy{
     nextMove(round,board)
     {
-        const position=this.randPosition(98-round);
+        const position=this.randPosition(99-round);
         let unHitPositionCount=-1;
         for(let i=0;i<100;i++)
         {
             const row=Math.floor(i/10);
             const col=i%10;
-
-            if(board.cell(row,col).isHit===false)unHitPositionCount++;
-            if(unHitPositionCount===position)
-            {
-                return [row,col];
+            if(board.cell(row,col).isHit===false)
+            {   unHitPositionCount++;
+                if(unHitPositionCount===position)
+                {
+                    console.log('('+row+','+col+')');
+                    return [row,col];
+                }
             }
             
         }
-
-        console.log('out of loop '+round+' '+position+' '+unHitPositionCount);
-        return [0,0];
     }
     randPosition(max)
     {
-        return Math.floor(Math.random()*(max+1));
+        return Math.floor(Math.random()*(max));
     }
 
 }
