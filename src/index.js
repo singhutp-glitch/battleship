@@ -26,8 +26,6 @@ class NewGame{
         this.showOrientation(this.orientationList[0],this.board1);
         this.setOrientation(this.orientationList[(this.orientNum%3)+1],this.player2);
         
-        // this.setup(this.player1,this.board1);
-        // this.setup(this.player2,this.board2);
         this.playBtn=document.querySelector('button.play');
         this.playBtn.addEventListener('click',()=>{
             this.playBtn.remove();
@@ -118,7 +116,7 @@ class NewGame{
     }
     computerTurn()
     {
-        const hitCell=[];
+        const hitCell=[0,0];
         this.player2.computerChoice(hitCell,this.round);
         
         const cell=(this.board1.children[hitCell[0]]).children[hitCell[1]];

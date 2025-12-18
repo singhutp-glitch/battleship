@@ -2,6 +2,8 @@ const { experiments } = require('webpack');
 const Ship=require('./ship');
 const Gameboard=require('./gameboard');
 const Player=require('./player');
+const {Ai,RandomStrategy,HuntState}=require('./ai');
+
 
 test('should initialize ship',()=>{
     const ship=new Ship(5);
@@ -106,4 +108,43 @@ test('player class should initiate',()=>{
 test('player should have Gameboard',()=>{
     const player1=new Player(0);
     expect(player1.gameBoard.noOfShips).toBe(0);
+})
+
+test('nextMove should work',()=>{
+   const strategy=new RandomStrategy;
+   const player=new Player(0);
+   const hitCell=strategy.nextMove(90,player.gameBoard);
+   expect(hitCell[0]).toBe(0);
+   expect(hitCell[1]<=9).toBe(true);
+})
+
+test('HuntState should initiate',()=>{
+    const huntState=new HuntState();
+    const player=new Player(0);
+    const hitCell=huntState.strategy.nextMove(90,player.gameBoard);
+    expect(hitCell[0]).toBe(0);
+    expect(hitCell[1]<=9).toBe(true);
+})
+test('Ai should initiate',()=>{
+    const ai=new Ai();
+    const player=new Player(0);
+    const hitCell=ai.currentState.strategy.nextMove(90,player.gameBoard);
+    expect(hitCell[0]).toBe(0);
+    expect(hitCell[1]<=9).toBe(true);
+})
+test('aiChoice should work',()=>{
+    const ai=new Ai();
+    const player=new Player(0);
+    const hitCell=ai.aiChoice(90,player.gameBoard);
+    expect(hitCell[0]).toBe(0);
+    expect(hitCell[1]<=9).toBe(true);
+
+})
+test('ComputerChoice should work',()=>{
+    const player=new Player(0);
+    let hitCell=[0,0];
+    player.computerChoice(hitCell,90);
+    expect(hitCell[0]).toBe(0);
+    expect(hitCell[1]<=9).toBe(true);
+
 })
