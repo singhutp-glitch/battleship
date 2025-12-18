@@ -55,7 +55,6 @@ class NewGame{
     }
     startGame()
     {
-        console.log('start game');
         this.board2.addEventListener('pointerdown',(event)=>{
             if(this.turn===1&& this.isGameOver===false){
                 let hitCell=[];
